@@ -26,9 +26,9 @@ checkPaths:
   - scripts/**
   - .github/workflows/**
   - docs/qualification.md
-lastReviewedAt: "2026-09-26"
-lastReviewedCommit: "711a1ec9843cb7df8dfd917ff8d0ded22a9152ea"
-lastReviewedNote: "Reviewed for tidas-spec #31 / PR #32: restored established naming examples and usage, optional procurement/market refinements, documented weighting and transport evidence; no release or adoption claim."
+lastReviewedAt: 2026-10-11
+lastReviewedCommit: aac99ac9943a56c1fc6db3a1ed3994e12efb9eb7
+lastReviewedNote: "Reviewed PR #32 against current main: retained four-part bilingual naming, evidence-bound upstream mix and delivery inheritance, source supersession, and draft-only artifact/consumer boundaries; current schema and publication contracts preserved."
 related:
   - AGENTS.md
   - .docpact/config.yaml
@@ -46,14 +46,14 @@ The stable repository responsibility, non-goals, and invariants are in [`AGENTS.
 
 ## Current state
 
-Version `0.2.2` is formally published on npm and GitHub Releases. The checkout now prepares an unpublished `0.2.3` candidate with source-bound EF Process methodology and corrected Process schema requirements; ordinary `main` changes do not publish it. Workspace consumers must pin an exact reviewed archive rather than infer publication from the repository version.
+Version `0.2.3` is formally published on npm and GitHub Releases. This checkout prepares the `0.3.0` release candidate with the eight-dataset ILCD compatibility revision, corrected primitive constraints, and mutually exclusive legacy aliases; ordinary `main` changes do not publish it. Workspace consumers must pin an exact reviewed archive rather than infer publication from the repository version.
 
 | Path | Content |
 | --- | --- |
 | `assets/tidas/schemas/`, `assets/tidas/schemas_zh/` | 18 reviewed JSON Schemas (Draft 7) in each language. |
 | `assets/tidas/methodologies/` | `tidas_flows.yaml` and `tidas_processes.yaml`. |
 | `assets/tidas/rules/` | Versioned public rule schema and index: nine reviewed definitions with source bindings, applicability, normative level, and positive/negative cases. |
-| `assets/tidas/schema.lock.json` | The pinned source schema lock, imported byte-for-byte. |
+| `assets/tidas/schema.lock.json` | Repository-generated lock binding the current schema bytes. |
 | `source-import.yaml` | Reviewed import record: source repository, commit, per-file SHA256, exclusions. |
 | `reviewed-baseline.json` | Independent review anchor for the source inventory and the shipped bytes. |
 | `spec-manifest.json` | Generated release manifest binding every shipped file by exact byte digest, plus the derived source findings. A pure function of the shipped content. |
@@ -81,7 +81,7 @@ Only after the release identity is present does the workflow dispatch `tidas_spe
 
 ## Source baseline
 
-The original 39-file import was extracted from Git blobs at `tidas-toolkit` commit `9c0d8b1c8ceb1841074f5bc6de5fbb7fcc9318f5` (`main`). Candidate 0.2.3 retains 32 of those files byte-for-byte. The Process and LCIA Method schemas in both languages, together with their derived schema lock, supersede the imported copies after the reviewed optional-review-report decision in tidas-spec #7; tidas-spec #24 further corrects Process review cardinality, and tidas-spec #29 corrects Process quantitative-reference requirements and makes `typeOfDataSet` optional. The Process methodology's version wording is separately superseded by tidas-spec #22 to match the unchanged `Version` schema. These are identified as repository-authored assets rather than falsely attributed to the toolkit commit. Issue #31 also supersedes Flow methodology mix/delivery wording while preserving its original source hash; the remaining 32-file import is independently bound. The two public-rule assets are also authored and reviewed here. `source-import.yaml` records both the remaining import and superseded source paths, while `reviewed-baseline.json` anchors the remaining imported bytes.
+The original 39-file import was extracted from Git blobs at `tidas-toolkit` commit `9c0d8b1c8ceb1841074f5bc6de5fbb7fcc9318f5` (`main`). Candidate 0.3.0 retains 20 of those files byte-for-byte. The Process and LCIA Method schemas in both languages, together with their derived schema lock, supersede the imported copies after the reviewed optional-review-report decision in tidas-spec #7; tidas-spec #24 further corrects Process review cardinality, and tidas-spec #29 corrects Process quantitative-reference requirements and makes `typeOfDataSet` optional. The Process methodology's version wording is separately superseded by tidas-spec #22 to match the unchanged `Version` schema. The coherent ILCD compatibility revision in #38 also supersedes the remaining twelve dataset-schema files; all sixteen dataset schemas are now repository-authored. These are identified as repository-authored assets rather than falsely attributed to the toolkit commit. Issue #31 also supersedes Flow methodology mix/delivery wording while preserving its original source hash; the remaining 20-file import is independently bound. The two public-rule assets are also authored and reviewed here. `source-import.yaml` records both the remaining import and superseded source paths, while `reviewed-baseline.json` anchors the remaining imported bytes.
 
 Three files present at that commit are deliberately **not** imported: `runtime_rulesets.json`, `runtime_rulesets.schema.json`, and `elementary_flow_taxonomy_extension.v1.json`. They remain owned by `tidas-toolkit` and their exclusion is recorded and enforced.
 
@@ -115,7 +115,11 @@ renaming. Production mix retains a documented weighting basis and geographic/tim
 Technology-specific remains valid alone or with an evidenced mix. Enterprise
 procurement is optional when existing descriptions are insufficient, and adding
 market to consumption mix is not a compulsory rename. Physical supply remains
-separate from contractual attributes.
+separate from contractual attributes. A verified upstream mix may survive
+delivery or a 1:1 adapter without new weighting when its documented scope still
+applies; the same evidenced delivered-consumer boundary consistently retains
+`to consumer`, while unresolved consumption/trade representativeness remains
+under review.
 
 The Flow methodology receives the same limited mix/node clarification while
 retaining its established examples. Its original imported hash remains as
@@ -168,7 +172,7 @@ two language sets are treated, and why the manifest cannot hash itself.
 Verifying an unpacked copy — the check a consumer can reproduce — uses the three stages that apply to a package directory:
 
 ```bash
-tar -xzf release/tiangong-lca-tidas-spec-0.2.3.tgz -C /tmp/tidas-spec-check
+tar -xzf release/tiangong-lca-tidas-spec-0.3.0.tgz -C /tmp/tidas-spec-check
 node scripts/spec/verify.mjs --root /tmp/tidas-spec-check/package \
   --stage identity --stage manifest --stage package
 ```

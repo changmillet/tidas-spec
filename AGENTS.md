@@ -22,9 +22,9 @@ checkPaths:
   - LICENSE
   - .gitignore
   - .docpact/config.yaml
-lastReviewedAt: "2026-09-26"
-lastReviewedCommit: "711a1ec9843cb7df8dfd917ff8d0ded22a9152ea"
-lastReviewedNote: "Reviewed for tidas-spec #31 / PR #32: preserve established mix, technology-specific and at/to naming while adding scoped evidence-based clarification; ownership, schema and consumer gates unchanged."
+lastReviewedAt: 2026-10-11
+lastReviewedCommit: aac99ac9943a56c1fc6db3a1ed3994e12efb9eb7
+lastReviewedNote: "Reviewed PR #32 against current main: retained four-part bilingual naming, evidence-bound upstream mix and delivery inheritance, source supersession, and draft-only artifact/consumer boundaries; current schema and publication contracts preserved."
 related:
   - README.md
   - .docpact/config.yaml

@@ -84,7 +84,14 @@ alone or accompany a supported mix; a market qualifier is optional, not a
 required rename of consumption mix. Enterprise procurement is an optional TIDAS
 supplement where the existing descriptions are insufficient. A Flow label,
 delivery to users, a loss proxy or a mapping adapter does not establish consumption
-mix. Existing at/to availability/handover and transport-to-node usage is retained;
+mix. A verified upstream production or consumption mix may be retained through
+delivery or a 1:1 voltage adapter without new weighting while its documented
+suppliers, shares, geography, period and scope still apply. Delivery does not
+automatically relabel production mix as consumption mix or authorize deleting
+an existing qualifier when representativeness remains under review. Grid delivery
+and a downstream adapter at the same evidenced delivered-consumer boundary
+consistently retain `to consumer`; a different boundary needs transport/loss
+evidence beyond a changed preposition. Existing at/to availability/handover and transport-to-node usage is retained;
 interface detail supplements it without a universal before/after-processing rule
 or an automatic completeness claim. Physical composition remains separate from
 contractual attributes; a certificate is not evidence of physical technology or

@@ -102,6 +102,34 @@ test('established availability and transport usage needs evidence without certif
   }
 });
 
+test('verified upstream mix and the same delivered boundary survive a 1:1 adapter in both languages', () => {
+  for (const name of [processName, flowName]) {
+    const en = text(name.mixAndLocationTypes, 'en');
+    const zh = text(name.mixAndLocationTypes, 'zh');
+    assert.match(en, /upstream production or consumption mix may be retained.*1:1.*no new weighting.*suppliers, shares, geography, period and scope/);
+    assert.match(en, /Flow label, loss ratio or 1:1 topology alone does not prove inheritance/);
+    assert.match(en, /Delivery of a production mix.*does not automatically make it a consumption mix.*consumption and trade scope/);
+    assert.match(en, /unverified representativeness under review rather than silently deleting/);
+    assert.match(en, /same evidenced delivered-consumer boundary.*consistently retain to consumer.*at consumer receiving point/);
+    assert.match(en, /Distinct boundaries need documented differences.*transport and losses.*adapter adds none by itself/);
+    assert.match(zh, /上游生产混合或消费混合.*无新增加权.*1:1.*供方、份额、地域、时期和范围/);
+    assert.match(zh, /Flow标签、损耗比例或1:1拓扑本身不能证明继承/);
+    assert.match(zh, /送达用户不会自动变成消费混合.*消费与贸易范围.*不静默删除/);
+    assert.match(zh, /相同且有证据.*统一沿用to consumer.*at consumer receiving point.*本身不构成新节点/);
+    assert.match(zh, /不同边界须记录所含运输与损耗的差异.*本身不增加/);
+  }
+  const positive = qualifierRule.cases.positive.join('\n');
+  const negative = qualifierRule.cases.negative.join('\n');
+  assert.match(positive, /grid-delivery Process retains verified upstream Production mix.*1:1.*no new weighting.*Production mix, to consumer/);
+  assert.match(positive, /verified upstream Consumption mix, to consumer.*1:1.*consumption and trade scope/);
+  assert.match(positive, /生产混合，至终端消费者/);
+  assert.match(positive, /消费混合，至终端消费者/);
+  assert.match(negative, /automatically deleted solely.*no new weighting/);
+  assert.match(negative, /automatically relabelled Consumption mix.*without evidence.*consumption and trade scope/);
+  assert.match(negative, /Flow label, a loss ratio or 1:1 topology alone/);
+  assert.match(negative, /to consumer and at consumer receiving point.*wording alone.*without documented transport or loss differences/);
+});
+
 test('contractual attributes do not establish physical supply or zero impact', () => {
   for (const name of [processName, flowName]) {
     assert.match(text(name.mixAndLocationTypes, 'en'), /physical supply composition.*contractual or attribute accounting/);
@@ -148,7 +176,7 @@ test('Flow methodology supersession keeps the original hash and independently bi
   assert.ok(repositoryAuthoredAssetPaths().includes(flowPath));
   assert.match(importText, /4a389d060f5c901b7c11625675948c0152df95ad33bedc87eca0f93341038d6d/);
   const baseline = JSON.parse(read('reviewed-baseline.json'));
-  assert.equal(baseline.fileCount, 32);
+  assert.equal(baseline.fileCount, 20);
   assert.equal(baseline.sourceFilesSha256, hashCanonicalJson(Object.fromEntries(imported.files.map((entry) => [entry.sourcePath, entry.sha256]))));
   const hashes = Object.fromEntries(imported.files.map(({ packagePath, sha256 }) => {
     const actual = sha256Hex(readFileSync(new URL(`../../${packagePath}`, import.meta.url)));

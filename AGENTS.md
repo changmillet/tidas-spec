@@ -23,7 +23,7 @@ checkPaths:
   - .gitignore
   - .docpact/config.yaml
 lastReviewedAt: 2026-10-11
-lastReviewedCommit: aac99ac9943a56c1fc6db3a1ed3994e12efb9eb7
+lastReviewedCommit: 85417351d96e6cdf16df4eb67ed16291ab5dcded
 lastReviewedNote: "Reviewed PR #32 against current main: retained four-part bilingual naming, evidence-bound upstream mix and delivery inheritance, source supersession, and draft-only artifact/consumer boundaries; current schema and publication contracts preserved."
 related:
   - README.md

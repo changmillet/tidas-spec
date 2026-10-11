@@ -687,8 +687,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "225d54b97925a8e9dde61aefc44b7af0218442a88548aeeeadf0296ed125417a",
-      "contentSha256": "225d54b97925a8e9dde61aefc44b7af0218442a88548aeeeadf0296ed125417a",
+      "sha256": "f88bf3eb67ff20de3d527d77e27016146ae4785dcb90df06a37363dde853adbf",
+      "contentSha256": "f88bf3eb67ff20de3d527d77e27016146ae4785dcb90df06a37363dde853adbf",
       "origin": "tidas-spec",
       "source": null
     },
@@ -701,8 +701,8 @@
     },
     {
       "path": "assets/tidas/methodologies/tidas_processes.yaml",
-      "sha256": "d2fb0a5eb01021ea00d94ed7eb46f287dbcf38920bbf086d960e89296d5917f0",
-      "contentSha256": "d2fb0a5eb01021ea00d94ed7eb46f287dbcf38920bbf086d960e89296d5917f0",
+      "sha256": "9a735f852d6bef5c0505557664541428a887365a53d47622eb2458e188eeddec",
+      "contentSha256": "9a735f852d6bef5c0505557664541428a887365a53d47622eb2458e188eeddec",
       "origin": "tidas-spec",
       "source": null
     },
@@ -1062,8 +1062,8 @@
     }
   ],
   "aggregates": {
-    "filesSha256": "b249fe99ffdf7123a1f4b8a30bd91e3d2721188d0bf4d0105bb058e299c34832",
-    "filesContentSha256": "b249fe99ffdf7123a1f4b8a30bd91e3d2721188d0bf4d0105bb058e299c34832"
+    "filesSha256": "03e1369a4da88b499aa086795c58247acce8b357da3038d45b2cd5da17578f81",
+    "filesContentSha256": "03e1369a4da88b499aa086795c58247acce8b357da3038d45b2cd5da17578f81"
   },
   "selfHash": {
     "note": "The manifest cannot contain its own digest. Its identity is the `files`/`aggregates` block above, bound externally by the archive digest record produced alongside the candidate archive; see docs/specification.md."

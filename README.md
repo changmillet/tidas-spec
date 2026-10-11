@@ -27,7 +27,7 @@ checkPaths:
   - .github/workflows/**
   - docs/qualification.md
 lastReviewedAt: 2026-10-11
-lastReviewedCommit: aac99ac9943a56c1fc6db3a1ed3994e12efb9eb7
+lastReviewedCommit: 85417351d96e6cdf16df4eb67ed16291ab5dcded
 lastReviewedNote: "Reviewed PR #32 against current main: retained four-part bilingual naming, evidence-bound upstream mix and delivery inheritance, source supersession, and draft-only artifact/consumer boundaries; current schema and publication contracts preserved."
 related:
   - AGENTS.md
@@ -128,6 +128,17 @@ cases protect the old expressions alongside shared-Flow compatibility,
 whole-Model/result names and evidence limits. Schema, package version and
 consumer gates are unchanged; this change has not been published or adopted by
 a consumer. See the [naming contract](docs/specification.md#process-name-fields).
+
+### Process field-writing examples
+
+The shipped Process methodology also includes bilingual guidance and positive
+and contrasting examples for intended applications, methodological use advice,
+and the physical applicability of the represented product or technology. These
+informative entries cite the ILCD Format and Handbooks separately from the EF
+requirements. Examples illustrate scientific purposes and limitations; internal
+task routing and pending save/adoption belong in task records. Scientific dataset
+identifiers and required EF supporting notices remain valid in their proper
+fields. See [source rationale and field roles](docs/ef-process-methodology.md#writing-intended-applications-use-advice-and-technological-applicability).
 
 ## Build and verification
 

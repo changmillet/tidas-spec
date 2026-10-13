@@ -1227,7 +1227,7 @@ test('rejects an archive whose published metadata was modified', async () => {
   const root = makeFixtureRoot();
   const { buildCandidate } = await import('../../scripts/spec/lib/build.mjs');
   const built = buildCandidate(root);
-  mutateFixtureText(root, 'reviewed-baseline.json', (text) => text.replace('"fileCount": 21', '"fileCount": 20'));
+  mutateFixtureText(root, 'reviewed-baseline.json', (text) => text.replace('"fileCount": 20', '"fileCount": 19'));
   const result = await verifyInProcess(root, ['identity', 'manifest', 'package', 'archive']);
   assert.equal(result.diagnostics.ok, false);
   assertAnyCode(result.diagnostics, ['SOURCE_IDENTITY', 'MANIFEST_STALE', 'ARCHIVE_MANIFEST_MISMATCH', 'ARCHIVE_SELF_VERIFY'], 'expected the modified review anchor to be rejected');
@@ -1265,8 +1265,8 @@ test('the manifest distinguishes imported assets from package metadata', async (
   const manifest = readFixtureJson(root, MANIFEST_PATH);
   const imported = manifest.files.filter((file) => file.origin === 'tidas-toolkit');
   const owned = manifest.files.filter((file) => file.origin === 'tidas-spec');
-  assert.equal(imported.length, 21);
-  assert.equal(owned.length, manifest.files.length - 21);
+  assert.equal(imported.length, 20);
+  assert.equal(owned.length, manifest.files.length - 20);
   for (const file of imported) {
     assert.ok(file.source !== null, `${file.path}: an imported asset must record its source path and digest`);
     assert.equal(file.source.sha256, file.sha256);

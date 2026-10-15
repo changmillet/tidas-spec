@@ -1,8 +1,8 @@
 version: 1
 layout: repo
-lastReviewedAt: "2026-10-11"
-lastReviewedCommit: "85417351d96e6cdf16df4eb67ed16291ab5dcded"
-lastReviewedNote: "Reviewed PR #32 against current main: retained four-part bilingual naming, evidence-bound upstream mix and delivery inheritance, source supersession, and draft-only artifact/consumer boundaries; current schema and publication contracts preserved."
+lastReviewedAt: "2026-10-16"
+lastReviewedCommit: "2fcf1c94f019e4ad7f2cfdccc57d817bbdc6cca4"
+lastReviewedNote: "Reviewed for #44: narrow dependency-monitoring ownership, coverage and routing preserve specification content and publication governance."
 
 catalog:
   repos:
@@ -24,6 +24,9 @@ ownership:
           - LICENSE
           - .gitignore
           - .docpact/**
+          - .github/dependabot.yml
+          - _docs/reference/dependency-updates.md
+          - _docs/reference/governance-maintenance.md
       ownerRepo: tidas-spec
     - id: specification-assets
       paths:
@@ -56,6 +59,9 @@ coverage:
     - LICENSE
     - .gitignore
     - .docpact/**
+    - .github/dependabot.yml
+    - _docs/reference/dependency-updates.md
+    - _docs/reference/governance-maintenance.md
     - assets/**
     - examples/**
     - conformance/**
@@ -82,6 +88,8 @@ docInventory:
     - docs/provenance.md
     - docs/public-rule-adjudication.md
     - docs/ef-process-methodology.md
+    - _docs/reference/dependency-updates.md
+    - _docs/reference/governance-maintenance.md
 
 routing:
   intents:
@@ -92,6 +100,11 @@ routing:
         - LICENSE
         - .gitignore
         - .docpact/**
+        - _docs/reference/governance-maintenance.md
+    dependency-maintenance:
+      paths:
+        - .github/dependabot.yml
+        - _docs/reference/dependency-updates.md
     specification-assets:
       paths:
         - assets/**
@@ -125,8 +138,6 @@ rules:
     triggers:
       - path: AGENTS.md
         kind: doc-contract
-      - path: .docpact/**
-        kind: doc-ai-layer
     requiredDocs:
       - path: AGENTS.md
         mode: review_or_update
@@ -135,6 +146,24 @@ rules:
       - path: .docpact/config.yaml
         mode: review_or_update
     reason: Repository policy and machine-readable governance must stay aligned with the stated bootstrap state and validation guide.
+  - id: tidas-spec-governance-maintenance-contract
+    scope: repo
+    repo: tidas-spec
+    triggers:
+      - path: .docpact/**
+        kind: doc-ai-layer
+      - path: _docs/reference/governance-maintenance.md
+        kind: maintainer-reference
+    requiredDocs:
+      - path: .docpact/config.yaml
+        mode: review_or_update
+      - path: _docs/reference/governance-maintenance.md
+        mode: review_or_update
+      - path: AGENTS.md
+        mode: must_exist
+      - path: README.md
+        mode: must_exist
+    reason: Configuration navigation and governance review belong in a nonpublished maintenance reference; semantic contract changes retain their existing source-document review rules.
   - id: tidas-spec-readme-contract
     scope: repo
     repo: tidas-spec
@@ -205,3 +234,15 @@ rules:
       - path: .docpact/config.yaml
         mode: review_or_update
     reason: Build, package identity, and publication automation alter the release contract, integrity guarantees, and validation guide.
+  - id: tidas-spec-dependency-monitoring-contract
+    scope: repo
+    repo: tidas-spec
+    triggers:
+      - path: .github/dependabot.yml
+        kind: dependency-monitoring
+      - path: _docs/reference/dependency-updates.md
+        kind: maintainer-reference
+    requiredDocs:
+      - path: _docs/reference/dependency-updates.md
+        mode: review_or_update
+    reason: Dependency proposal scope and maintenance remain documented separately from the shipped specification and release artifacts.

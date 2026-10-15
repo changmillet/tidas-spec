@@ -34,10 +34,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Check out the specification repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           # Pinned exactly. The archive's bytes come from the platform zlib, so
           # reproducibility is guaranteed within one pinned toolchain; the drift

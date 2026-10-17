@@ -687,8 +687,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "f88bf3eb67ff20de3d527d77e27016146ae4785dcb90df06a37363dde853adbf",
-      "contentSha256": "f88bf3eb67ff20de3d527d77e27016146ae4785dcb90df06a37363dde853adbf",
+      "sha256": "8c634b524f51df571837182e86510fa97b645eaddf786c6fe1af6afc7ce9f670",
+      "contentSha256": "8c634b524f51df571837182e86510fa97b645eaddf786c6fe1af6afc7ce9f670",
       "origin": "tidas-spec",
       "source": null
     },
@@ -1062,8 +1062,8 @@
     }
   ],
   "aggregates": {
-    "filesSha256": "03e1369a4da88b499aa086795c58247acce8b357da3038d45b2cd5da17578f81",
-    "filesContentSha256": "03e1369a4da88b499aa086795c58247acce8b357da3038d45b2cd5da17578f81"
+    "filesSha256": "fca7457d8b42097418d21ad512145f93c82ec18b57a55e4a75562f408b24dd89",
+    "filesContentSha256": "fca7457d8b42097418d21ad512145f93c82ec18b57a55e4a75562f408b24dd89"
   },
   "selfHash": {
     "note": "The manifest cannot contain its own digest. Its identity is the `files`/`aggregates` block above, bound externally by the archive digest record produced alongside the candidate archive; see docs/specification.md."

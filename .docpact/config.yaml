@@ -1,8 +1,8 @@
 version: 1
 layout: repo
-lastReviewedAt: "2026-10-16"
-lastReviewedCommit: "2fcf1c94f019e4ad7f2cfdccc57d817bbdc6cca4"
-lastReviewedNote: "Reviewed for #44: narrow dependency-monitoring ownership, coverage and routing preserve specification content and publication governance."
+lastReviewedAt: "2026-10-18"
+lastReviewedCommit: "7c857f33bf63c3fbeb984218ae3a4d4ff18676e6"
+lastReviewedNote: "Reviewed for #47: automation and generated-candidate paths retain existing ownership, coverage, routing and review obligations; governance changes are review metadata only."
 
 catalog:
   repos:

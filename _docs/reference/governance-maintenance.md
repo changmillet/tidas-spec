@@ -13,9 +13,9 @@ whenToUpdate:
 checkPaths:
   - .docpact/**
   - _docs/reference/governance-maintenance.md
-lastReviewedAt: 2026-10-16
-lastReviewedCommit: 2fcf1c94f019e4ad7f2cfdccc57d817bbdc6cca4
-lastReviewedNote: "Reviewed for #44: documentation navigation and dependency-monitoring governance are separate from the unchanged specification, package and publication contracts."
+lastReviewedAt: 2026-10-18
+lastReviewedCommit: 7c857f33bf63c3fbeb984218ae3a4d4ff18676e6
+lastReviewedNote: "Reviewed for #47: existing automation review includes the shipped README and derived source-only candidate artifacts; monitoring/config-only routing and publication boundaries remain unchanged."
 ---
 
 The repository contract remains [AGENTS.md](../../AGENTS.md), and the published

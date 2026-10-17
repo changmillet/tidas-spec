@@ -22,9 +22,9 @@ checkPaths:
   - LICENSE
   - .gitignore
   - .docpact/config.yaml
-lastReviewedAt: 2026-10-11
-lastReviewedCommit: 85417351d96e6cdf16df4eb67ed16291ab5dcded
-lastReviewedNote: "Reviewed PR #32 against current main: retained four-part bilingual naming, evidence-bound upstream mix and delivery inheritance, source supersession, and draft-only artifact/consumer boundaries; current schema and publication contracts preserved."
+lastReviewedAt: 2026-10-18
+lastReviewedCommit: 7c857f33bf63c3fbeb984218ae3a4d4ff18676e6
+lastReviewedNote: "Reviewed for #47: immutable Actions qualification and source-only candidate regeneration preserve repository ownership, specification inputs, qualification and guarded manual publication."
 related:
   - README.md
   - .docpact/config.yaml

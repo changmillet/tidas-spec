@@ -26,9 +26,9 @@ checkPaths:
   - scripts/**
   - .github/workflows/**
   - docs/qualification.md
-lastReviewedAt: 2026-10-11
-lastReviewedCommit: 85417351d96e6cdf16df4eb67ed16291ab5dcded
-lastReviewedNote: "Reviewed PR #32 against current main: retained four-part bilingual naming, evidence-bound upstream mix and delivery inheritance, source supersession, and draft-only artifact/consumer boundaries; current schema and publication contracts preserved."
+lastReviewedAt: 2026-10-18
+lastReviewedCommit: 7c857f33bf63c3fbeb984218ae3a4d4ff18676e6
+lastReviewedNote: "Reviewed for #47: immutable checkout/setup-node pins preserve the documented toolchain and release guards; README review metadata requires source-only manifest/archive regeneration without publication or consumer adoption."
 related:
   - AGENTS.md
   - .docpact/config.yaml

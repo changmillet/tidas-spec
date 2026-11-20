@@ -2,9 +2,9 @@
   "manifestVersion": 1,
   "package": {
     "name": "@tiangong-lca/tidas-spec",
-    "version": "0.3.0"
+    "version": "0.3.1"
   },
-  "specVersion": "0.3.0",
+  "specVersion": "0.3.1",
   "source": {
     "repository": "https://github.com/tiangong-lca/tidas-toolkit",
     "repositoryId": "tidas-toolkit",
@@ -687,8 +687,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "8c634b524f51df571837182e86510fa97b645eaddf786c6fe1af6afc7ce9f670",
-      "contentSha256": "8c634b524f51df571837182e86510fa97b645eaddf786c6fe1af6afc7ce9f670",
+      "sha256": "e65c1af0c77879d1a02f62ccb0d81351ff2e22e867dff1a2dbf34b7c3403f7e6",
+      "contentSha256": "e65c1af0c77879d1a02f62ccb0d81351ff2e22e867dff1a2dbf34b7c3403f7e6",
       "origin": "tidas-spec",
       "source": null
     },
@@ -1041,15 +1041,15 @@
     },
     {
       "path": "package.json",
-      "sha256": "bc215c772969ac6fb53f5a91fa0ce1d176467359a073f060fc053c5eb745c85c",
-      "contentSha256": "bc215c772969ac6fb53f5a91fa0ce1d176467359a073f060fc053c5eb745c85c",
+      "sha256": "f0388fedaf472cedf328ee90ef6daa51222cc48677845735ebd99b974251e75d",
+      "contentSha256": "f0388fedaf472cedf328ee90ef6daa51222cc48677845735ebd99b974251e75d",
       "origin": "tidas-spec",
       "source": null
     },
     {
       "path": "reviewed-baseline.json",
-      "sha256": "a3f4c36c109910ed8d7158ca2b9b3f51d76a12fa999e07ca1f03f3c8c0f833c2",
-      "contentSha256": "a3f4c36c109910ed8d7158ca2b9b3f51d76a12fa999e07ca1f03f3c8c0f833c2",
+      "sha256": "293211cc66fe1c0f0d86ea0cec81575bc94afd629f871025d237caf6b5ceddda",
+      "contentSha256": "293211cc66fe1c0f0d86ea0cec81575bc94afd629f871025d237caf6b5ceddda",
       "origin": "tidas-spec",
       "source": null
     },
@@ -1062,8 +1062,8 @@
     }
   ],
   "aggregates": {
-    "filesSha256": "fca7457d8b42097418d21ad512145f93c82ec18b57a55e4a75562f408b24dd89",
-    "filesContentSha256": "fca7457d8b42097418d21ad512145f93c82ec18b57a55e4a75562f408b24dd89"
+    "filesSha256": "b3f7e89e5657d1eabd61a0eed9a53413e960a4b52cda12a99f75b376b0061691",
+    "filesContentSha256": "b3f7e89e5657d1eabd61a0eed9a53413e960a4b52cda12a99f75b376b0061691"
   },
   "selfHash": {
     "note": "The manifest cannot contain its own digest. Its identity is the `files`/`aggregates` block above, bound externally by the archive digest record produced alongside the candidate archive; see docs/specification.md."

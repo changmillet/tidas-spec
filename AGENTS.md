@@ -22,9 +22,9 @@ checkPaths:
   - LICENSE
   - .gitignore
   - .docpact/config.yaml
-lastReviewedAt: 2026-10-18
-lastReviewedCommit: 7c857f33bf63c3fbeb984218ae3a4d4ff18676e6
-lastReviewedNote: "Reviewed for #47: immutable Actions qualification and source-only candidate regeneration preserve repository ownership, specification inputs, qualification and guarded manual publication."
+lastReviewedAt: 2026-11-20
+lastReviewedCommit: a84ff8b3b43c87ba30f0f5feec83f9cb4a50b7b7
+lastReviewedNote: "Spec #48 reviewed patch version 0.3.1, the original 0.3.0 public archive and the unchanged content and release qualification boundaries."
 related:
   - README.md
   - .docpact/config.yaml

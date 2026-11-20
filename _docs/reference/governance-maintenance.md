@@ -13,8 +13,8 @@ whenToUpdate:
 checkPaths:
   - .docpact/**
   - _docs/reference/governance-maintenance.md
-lastReviewedAt: 2026-10-18
-lastReviewedCommit: 7c857f33bf63c3fbeb984218ae3a4d4ff18676e6
+lastReviewedAt: 2026-11-20
+lastReviewedCommit: 57ad4a1bddefe9b6846e3d322acd774fcdfda29f
 lastReviewedNote: "Reviewed for #47: existing automation review includes the shipped README and derived source-only candidate artifacts; monitoring/config-only routing and publication boundaries remain unchanged."
 ---
 

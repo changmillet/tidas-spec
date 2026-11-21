@@ -26,8 +26,8 @@ checkPaths:
   - scripts/**
   - .github/workflows/**
   - docs/qualification.md
-lastReviewedAt: 2026-11-20
-lastReviewedCommit: a84ff8b3b43c87ba30f0f5feec83f9cb4a50b7b7
+lastReviewedAt: 2026-11-21
+lastReviewedCommit: 894bd1710c37dcfeffb19aee6a52a7cb941a9975
 lastReviewedNote: "Spec #48 reviewed patch version 0.3.1, the original 0.3.0 public archive and the unchanged content and release qualification boundaries."
 related:
   - AGENTS.md
@@ -164,6 +164,8 @@ node --test 'test/unit/**/*.test.mjs'
 node --test 'test/conformance/**/*.test.mjs'
 node --test 'test/integration/**/*.test.mjs'
 ```
+
+Conformance tests rebuild derived files inside disposable fixtures. A fixture reuses the manifest computed after the schema lock update when the reviewed baseline stays byte-identical. A changed baseline requires a fresh manifest because the package ships the baseline itself.
 
 A plain build is a **draft**: complete and verifiable, but claiming no source
 revision, so it is not eligible for downstream consumption. `--qualify` produces

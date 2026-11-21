@@ -190,16 +190,16 @@ export async function rebuildDerivedArtifacts(root) {
   // Keep the post-lock manifest available when refreshing an invalid baseline throws.
   const postLockManifest = writeManifest(root);
   const baselinePath = path.join(root, 'reviewed-baseline.json');
-  const previousBaseline = readFileSync(baselinePath, 'utf8');
-  const baseline = JSON.parse(previousBaseline);
+  const previousBaseline = readFileSync(baselinePath);
+  const baseline = JSON.parse(previousBaseline.toString('utf8'));
   baseline.fileCount = importManifest.files.length;
   baseline.sourceFilesSha256 = hashCanonicalJson(Object.fromEntries(importManifest.files.map((file) => [file.sourcePath, file.sha256])));
   baseline.packageFilesSha256 = hashCanonicalJson(Object.fromEntries(importManifest.files.map((file) => file.packagePath).sort().map((relative) => [relative, assetSet.sha256.get(relative)])));
-  const updatedBaseline = formatJson(baseline);
+  const updatedBaseline = Buffer.from(formatJson(baseline));
   writeFileSync(baselinePath, updatedBaseline);
 
   // The baseline itself is shipped, so changed bytes require a fresh manifest.
-  return updatedBaseline === previousBaseline ? postLockManifest : writeManifest(root);
+  return updatedBaseline.equals(previousBaseline) ? postLockManifest : writeManifest(root);
 }
 
 /**

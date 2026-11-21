@@ -88,6 +88,24 @@ test('positive control: the unmodified fixture verifies', async () => {
   assert.equal(result.diagnostics.ok, true, `unexpected failures: ${JSON.stringify(result.diagnostics.errors, null, 2)}`);
 });
 
+test('a rewritten baseline is bound to its actual bytes even when its decoded text is unchanged', async () => {
+  const root = makeFixtureRoot();
+  const relative = 'reviewed-baseline.json';
+  const file = path.join(root, relative);
+  const baseline = readFixtureJson(root, relative);
+  const [before, after] = formatJson({ ...baseline, note: 'raw-byte-placeholder' }).split('raw-byte-placeholder');
+  const original = Buffer.concat([Buffer.from(before), Buffer.from([0xff]), Buffer.from(after)]);
+  writeFileSync(file, original);
+
+  const result = await rebuildDerivedArtifacts(root);
+  const rewritten = readFileSync(file);
+  assert.equal(rewritten.toString('utf8'), original.toString('utf8'));
+  assert.equal(rewritten.equals(original), false);
+  const expected = sha256Hex(rewritten);
+  assert.equal(result.manifest.files.find((entry) => entry.path === relative)?.sha256, expected);
+  assert.equal(readFixtureJson(root, MANIFEST_PATH).files.find((entry) => entry.path === relative)?.sha256, expected);
+});
+
 test('positive control: the real repository verifies end to end', async () => {
   const result = verifyCandidate({ repoRoot: REPO_ROOT, stages: IDENTITY });
   assert.equal(result.diagnostics.ok, true, `repository verification failed: ${JSON.stringify(result.diagnostics.errors, null, 2)}`);

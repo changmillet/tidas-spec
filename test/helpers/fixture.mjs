@@ -171,7 +171,6 @@ export async function rebuildDerivedArtifacts(root) {
   const { loadAssetSet } = await import('../../scripts/spec/lib/inventory.mjs');
   const { computeSchemaLock } = await import('../../scripts/spec/lib/lock.mjs');
   const { readImportManifest } = await import('../../scripts/spec/lib/package-content.mjs');
-  const { buildManifest } = await import('../../scripts/spec/lib/verify.mjs');
   const { writeManifest } = await import('../../scripts/spec/lib/build.mjs');
   const { formatJson, hashCanonicalJson } = await import('../../scripts/spec/lib/core.mjs');
 
@@ -187,17 +186,20 @@ export async function rebuildDerivedArtifacts(root) {
   writeFileSync(lockPath, formatJson(lock));
 
   const importManifest = readImportManifest(root, 'source-import.yaml');
-  const manifest = buildManifest({ packageRoot: root, assetSet, importManifest });
-  writeFileSync(path.join(root, 'spec-manifest.json'), formatJson(manifest));
 
+  // Keep the post-lock manifest available when refreshing an invalid baseline throws.
+  const postLockManifest = writeManifest(root);
   const baselinePath = path.join(root, 'reviewed-baseline.json');
-  const baseline = JSON.parse(readFileSync(baselinePath, 'utf8'));
+  const previousBaseline = readFileSync(baselinePath, 'utf8');
+  const baseline = JSON.parse(previousBaseline);
   baseline.fileCount = importManifest.files.length;
   baseline.sourceFilesSha256 = hashCanonicalJson(Object.fromEntries(importManifest.files.map((file) => [file.sourcePath, file.sha256])));
   baseline.packageFilesSha256 = hashCanonicalJson(Object.fromEntries(importManifest.files.map((file) => file.packagePath).sort().map((relative) => [relative, assetSet.sha256.get(relative)])));
-  writeFileSync(baselinePath, formatJson(baseline));
+  const updatedBaseline = formatJson(baseline);
+  writeFileSync(baselinePath, updatedBaseline);
 
-  return writeManifest(root);
+  // The baseline itself is shipped, so changed bytes require a fresh manifest.
+  return updatedBaseline === previousBaseline ? postLockManifest : writeManifest(root);
 }
 
 /**

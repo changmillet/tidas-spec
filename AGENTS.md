@@ -22,8 +22,8 @@ checkPaths:
   - LICENSE
   - .gitignore
   - .docpact/config.yaml
-lastReviewedAt: 2026-11-20
-lastReviewedCommit: a84ff8b3b43c87ba30f0f5feec83f9cb4a50b7b7
+lastReviewedAt: 2026-11-21
+lastReviewedCommit: 894bd1710c37dcfeffb19aee6a52a7cb941a9975
 lastReviewedNote: "Spec #48 reviewed patch version 0.3.1, the original 0.3.0 public archive and the unchanged content and release qualification boundaries."
 related:
   - README.md

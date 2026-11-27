@@ -26,8 +26,8 @@ checkPaths:
   - scripts/**
   - .github/workflows/**
   - docs/qualification.md
-lastReviewedAt: 2026-11-21
-lastReviewedCommit: 7d9f9b3ca7aa1f3e59d032ffdb56610d67926a38
+lastReviewedAt: 2026-11-27
+lastReviewedCommit: 67079534319d0285c623a7fba19519246678b408
 lastReviewedNote: "Spec #48 reviewed patch version 0.3.1, the original 0.3.0 public archive and the unchanged content and release qualification boundaries."
 related:
   - AGENTS.md
